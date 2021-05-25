@@ -1,0 +1,63 @@
+body {
+    background-image: url(./spring.jpg);
+    background-repeat: no-repeat;
+    background-size: cover ;
+}
+.text {
+    color: paleturquoise;
+    font-size: xx-large;
+    font-family: cursive;
+    text-align:end
+
+}
+.btn-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.btn {
+    padding: 20px;
+    margin-right: 50px;
+
+    font-family: fantasy;
+    font-size: 70px;
+    font-weight: bolder;
+
+    border-color:  paleturquoise;;
+    border-style: solid;
+    border-radius: 50%;
+    border-width: 10px;
+  
+    color: hsl(340, 78%, 75%);
+    background-image:  url(./spring.jpg) ;
+    transition: all 700ms;
+}
+
+.btn:hover,
+.btn:focus {
+color: paleturquoise;
+}
+
+.timer {
+    display: inline;
+    text-align: right;
+    font-family: cursive;
+    font-size: xx-large;
+    font-weight: bolder;
+    color: hsl(340, 64%, 84%);
+}
+
+.label {
+    color:paleturquoise;
+    transition: cubic-bezier(0.175, 0.885, 0.32, 1.275),250ms;
+}
+
+.label:hover {
+    color: hsl(340, 64%, 84%);
+}
+
+.value {
+    font-size: 40px;
+}
