@@ -17,11 +17,6 @@ class CountdownTimer {
       this.init();
   }
 
-  init() {
-      const { days, hours, mins, secs } = this.getTimeComponents(0);
-      this.onTick({ days, hours, mins, secs });
-  }
-
   start() {
       if (this.isActive) {
           return;
@@ -32,12 +27,15 @@ class CountdownTimer {
           const targetDate = this.targetDate;
           const currentDate = Date.now();
           const deltaTime = targetDate - currentDate;
-          const { days, hours, mins, secs } = this.getTimeComponents(deltaTime);
+          const time = this.getTimeComponents(deltaTime);
   
-          this.onTick({ days, hours, mins, secs });
+          this.onTick(time);
       }, 1000);
   }
-  
+  init() {
+    const { days, hours, mins, secs } = this.getTimeComponents(0);
+    this.onTick({ days, hours, mins, secs });
+  }
   stop() {
       clearInterval(this.intervalId);
       this.isActive = false;
@@ -54,15 +52,16 @@ class CountdownTimer {
       return { days, hours, mins, secs };
   };
 
+  
 }
 // TIMER
 const timer = new CountdownTimer({
   selector: '#timer-1',
   targetDate: new Date('Jun 01, 2021'),
-  onTick: upDateClockFace,
+  onTick: updateClockFace,
 });
 
-function upDateClockFace({ days, hours, mins, secs }) {
+function updateClockFace({ days, hours, mins, secs }) {
   daysRef.textContent = `${days}`,
   hoursRef.textContent = `${hours}`,
   minsRef.textContent = `${mins}`,
