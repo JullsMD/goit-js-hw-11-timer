@@ -62,9 +62,9 @@ const timer = new CountdownTimer({
 });
 
 function updateClockFace({ days, hours, mins, secs }) {
-  daysRef.textContent = `${days}`,
-  hoursRef.textContent = `${hours}`,
-  minsRef.textContent = `${mins}`,
+  daysRef.textContent = `${days}:`,
+  hoursRef.textContent = `${hours}:`,
+  minsRef.textContent = `${mins}:`,
   secsRef.textContent = `${secs}`
 };
 // lISTENERS

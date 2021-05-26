@@ -4,11 +4,12 @@ body {
     background-size: cover ;
 }
 .text {
-    color: paleturquoise;
-    font-size: xx-large;
+    margin-top: 80px;
+    font-size: x-large;
     font-family: cursive;
-    text-align:end
-
+    text-align: end;
+    
+    color: paleturquoise;
 }
 .btn-wrapper {
     display: flex;
@@ -41,12 +42,22 @@ color: paleturquoise;
 }
 
 .timer {
-    display: inline;
-    text-align: right;
+    display: flex;
+    text-align: center;
+    justify-content: flex-end;
+
+    margin-top: 20px;
+ 
     font-family: cursive;
-    font-size: xx-large;
+    font-size:x-large;
     font-weight: bolder;
+
     color: hsl(340, 64%, 84%);
+}
+.field {
+    display: inline-flex;
+    flex-direction: column;
+    padding: 10px;
 }
 
 .label {
