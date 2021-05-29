@@ -29,12 +29,12 @@ class CountdownTimer {
           const deltaTime = targetDate - currentDate;
           const time = this.getTimeComponents(deltaTime);
   
-          this.onTick(time);
+          this.updateClockFace(time);
       }, 1000);
   }
   init() {
     const { days, hours, mins, secs } = this.getTimeComponents(0);
-    this.onTick({ days, hours, mins, secs });
+    this.updateClockFace({ days, hours, mins, secs });
   }
   stop() {
       clearInterval(this.intervalId);
@@ -50,10 +50,22 @@ class CountdownTimer {
       const mins =  this.pad(Math.floor((time % (1000 * 60 * 60)) / (1000 * 60)));
       const secs = this.pad(Math.floor((time % (1000 * 60)) / 1000));
       return { days, hours, mins, secs };
-  };
+  }; 
+  updateClockFace({ days, hours, mins, secs }) {
+    const timer1 = document.querySelector(this.selector);
+    const daysRef = timer1.querySelector('.value[data-value="days"]');
+    const hoursRef = timer1.querySelector('.value[data-value="hours"]');
+    const minsRef = timer1.querySelector('.value[data-value="mins"]');
+    const secsRef = timer1.querySelector('.value[data-value="secs"]');
 
-  
+      daysRef.textContent = `${days}:`,
+      hoursRef.textContent =`${hours}:`,
+      minsRef.textContent = `${mins}:`,
+      secsRef.textContent = `${secs}`
+  }
 }
+
+
 // TIMER
 const timer = new CountdownTimer({
   selector: '#timer-1',
